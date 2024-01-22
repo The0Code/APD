@@ -45,4 +45,4 @@ async def on_ready():
     await bot.tree.sync()
 
 
-bot.run('MTE0Mjg4NTg2MzY0MzE3MzA0NA.GfxvFX.xti1nMbQd4-Zbg9kPfKxE8xbcYTo5smJA-mNM4')
+bot.run('--- API key ---')
