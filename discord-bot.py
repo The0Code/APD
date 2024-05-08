@@ -16,8 +16,8 @@ async def iotd(ctx: discord.Interaction):
     response = requests.get("https://api.nasa.gov/planetary/apod", params={"api_key": "2D1xuvyksKFdFHCa8a4cUPHl5q0O8YKDhvSL7CUO"})
     iurl = response.json()['url']
     exp = response.json()['explanation']
-    img = discord.Embed().set_image(url=iurl)
-    await ctx.response.send_message(content=exp, embed=img)
+    c = f'{exp}\n\nLink to image: {iurl}'
+    await ctx.response.send_message(content=c)
 
 @tasks.loop(time=datetime.time(hour=6, minute=1))
 async def called_once_a_day():
