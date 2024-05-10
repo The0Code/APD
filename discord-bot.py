@@ -24,13 +24,13 @@ async def called_once_a_day():
     response = requests.get("https://api.nasa.gov/planetary/apod", params={"api_key": "2D1xuvyksKFdFHCa8a4cUPHl5q0O8YKDhvSL7CUO"})
     iurl = response.json()['url']
     exp = response.json()['explanation']
-    img = discord.Embed().set_image(url=iurl)
+    c = f'{exp}\n\nLink to image: {iurl}'
     for guild in bot.guilds:
         for text_ch in guild.text_channels:
             if  text_ch.name == "nasa-image-of-the-day":
                 message_channel = bot.get_channel(text_ch.id)
 
-                await message_channel.send(content=exp, embed=img)
+                await message_channel.send(content=c)
             else:
                 pass
 
